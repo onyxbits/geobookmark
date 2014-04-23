@@ -6,8 +6,8 @@
     <ImageButton
     	android:id="@+id/trigger"
     	android:background="@android:color/transparent"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
     	android:layout_centerHorizontal="true"
     	android:layout_centerVertical="true"
     	android:src="@drawable/ic_launcher" />
