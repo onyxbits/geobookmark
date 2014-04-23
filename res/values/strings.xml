@@ -2,7 +2,6 @@
 <resources>
 
 	<string name="app_name">Geo Bookmark</string>
-	<string name="appwidget_text">EXAMPLE</string>
 	<string name="add_widget">Add widget</string>
 	<string name="getting_location">Getting Location</string>
 
