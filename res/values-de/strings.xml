@@ -3,5 +3,6 @@
 
 	<string name="app_name">Geo Lesezeichen</string>
 	<string name="getting_location">Berechne Position</string>
-
+	<string name="no_fix">Ortsbestimmung nicht möglich!</string>
+	<string name="bad_fix">Ortsbestimmung möglicherweise ungenau</string>
 </resources>

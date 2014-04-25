@@ -11,6 +11,7 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.text.format.DateFormat;
 import android.widget.Toast;
@@ -88,6 +89,12 @@ public class BookmarkService extends Service implements LocationListener {
 		lm.removeUpdates(this);
 		if (loc != null) {
 			bookmark(false, loc.getLatitude(), loc.getLongitude(), createTag());
+			Toast.makeText(this,R.string.bad_fix,Toast.LENGTH_LONG).show();
+		}
+		else {
+			// This happens if GPS is unavailable and no app has requested a location
+			// since the last reboot.
+			Toast.makeText(this,R.string.no_fix,Toast.LENGTH_LONG).show();
 		}
 		feedback();
 		stopSelf();

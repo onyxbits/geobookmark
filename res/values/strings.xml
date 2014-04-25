@@ -4,5 +4,6 @@
 	<string name="app_name">Geo Bookmark</string>
 	<string name="add_widget">Add widget</string>
 	<string name="getting_location">Getting Location</string>
-
+	<string name="no_fix">Can\'t get a location!</string>
+	<string name="bad_fix">Location may be unprecise</string>
 </resources>
