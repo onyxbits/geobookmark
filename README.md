@@ -1,5 +1,19 @@
-Geo Bookmark is a simple widget that will add a bookmark with your current time and geographical location to the homescreen. The interface is kept minimal to allow operation in situations that do not permit extensive interaction with the phone (e.g. while driving a car).
+Geo Bookmark is a homescreen widget and a dashclock extension that allows you to quickly record your current
+whereabouts for later review with a single button press. Some use cases include:
 
-Bookmarks are color coded. Blue icons represent exact locations, red icons mean that the widget could not get a GPS fix within 40 seconds and therefore recorded the last known GPS location.
+<b>Use case:</b> You are driving down the road, something catches your attention, but you cannot pull over to 
+investigate and you cannot savely text yourself a reminder.
+<br>
+<b>Use case:</b> You work "door to door" (e.g. pizza delivery, bike courier) and want to log your route.
+<br>
+<b>Use case:</b> You are on vacation and you want to mark a tourist attraction, a restaurant or a meeting point
+for returning to later.
 
-In order to view a bookmark, a suitable maps application needs to be installed (e.g. Google Maps or OSMAnd).
+Bookmarks are placed on the homescreen. In order to view a bookmark, you need to have a suitable maps application
+installed  as well (e.g. Google Maps or OSMAnd~). Please note that in order to conserve battery life, Geo Bookmark 
+will only try to get a location when you request it. GPS will be tried first. If no fix can be determined within
+40 seconds, the system will be asked if there is a "last known position". On a recently booted device, it may be
+nescessary to initialize the location service with a more patient location tracking app.
+
+Bookmarks are color coded. A blue symbol indicates a GPS derived location. A red symbol indicates that the "last
+known position" was used and the bookmark should be double checked.

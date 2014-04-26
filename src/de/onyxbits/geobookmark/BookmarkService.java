@@ -2,8 +2,6 @@ package de.onyxbits.geobookmark;
 
 import java.util.Date;
 
-
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
@@ -15,11 +13,9 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.text.format.DateFormat;
-import android.widget.RemoteViews;
 import android.widget.Toast;
 
 public class BookmarkService extends Service implements LocationListener {
@@ -31,7 +27,6 @@ public class BookmarkService extends Service implements LocationListener {
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		// TODO: Return the communication channel to the service.
 		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
@@ -73,7 +68,6 @@ public class BookmarkService extends Service implements LocationListener {
 		double lat = location.getLatitude();
 		double lon = location.getLongitude();
 		bookmark(true, lat, lon, createTag());
-		feedback();
 		stopSelf();
 	}
 
@@ -95,22 +89,21 @@ public class BookmarkService extends Service implements LocationListener {
 		lm.removeUpdates(this);
 		if (loc != null) {
 			bookmark(false, loc.getLatitude(), loc.getLongitude(), createTag());
-			Toast.makeText(this,R.string.bad_fix,Toast.LENGTH_LONG).show();
+			Toast.makeText(this, R.string.bad_fix, Toast.LENGTH_LONG).show();
 		}
 		else {
 			// This happens if GPS is unavailable and no app has requested a location
 			// since the last reboot.
-			NotificationCompat.Builder builder =
-	        new NotificationCompat.Builder(this)
-	        .setSmallIcon(R.drawable.ic_stat_error)
-	        .setContentTitle(getString(R.string.no_fix_title))
-	        .setAutoCancel(true)
-	        .setContentText(getString(R.string.no_fix_content));
+			NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+					.setSmallIcon(R.drawable.ic_stat_error).setContentTitle(getString(R.string.no_fix_title))
+					.setAutoCancel(true).setContentText(getString(R.string.no_fix_content));
 
 			NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-			nm.notify(0,builder.build());
+			nm.notify(0, builder.build());
 		}
-		feedback();
+		Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+		Ringtone r = RingtoneManager.getRingtone(this, uri);
+		r.play();
 		stopSelf();
 	}
 
@@ -119,10 +112,5 @@ public class BookmarkService extends Service implements LocationListener {
 		return DateFormat.getTimeFormat(this).format(d) + " "
 				+ DateFormat.getDateFormat(this).format(d);
 	}
-	
-	private void feedback() {
-		Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-		Ringtone r = RingtoneManager.getRingtone(this, notification);
-		r.play();
-	}
+
 }
