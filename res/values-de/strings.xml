@@ -3,6 +3,10 @@
 
 	<string name="app_name">Geo Lesezeichen</string>
 	<string name="getting_location">Berechne Position</string>
-	<string name="no_fix">Ortsbestimmung nicht möglich!</string>
 	<string name="bad_fix">Ortsbestimmung möglicherweise ungenau</string>
+	<string name="no_fix_title">Ortsbestimmung unmöglich</string>
+	<string name="no_fix_content">Kein GPS Signal und keine zuletzt bekannte Position.</string>
+	<string name="dashclock_title">Geo Lesezeichen</string>
+	<string name="dashclock_description">Erzeugt ein Lesezeichen mit aktueller Position und Uhrzeit auf dem Homescreen.</string>
+
 </resources>

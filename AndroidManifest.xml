@@ -11,7 +11,7 @@
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
-	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
 
 	<application
 		android:allowBackup="true"
@@ -33,6 +33,35 @@
 			android:enabled="true"
 			android:exported="false" >
 		</service>
+		<service
+			android:name="de.onyxbits.geobookmark.DashclockExtensionService"
+			android:icon="@drawable/ic_extension"
+			android:label="@string/dashclock_title"
+			android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+			<intent-filter>
+				<action android:name="com.google.android.apps.dashclock.Extension" />
+			</intent-filter>
+
+			<meta-data
+				android:name="protocolVersion"
+				android:value="2" />
+			<meta-data
+				android:name="worldReadable"
+				android:value="true" />
+			<meta-data
+				android:name="description"
+				android:value="@string/dashclock_description" />
+			<meta-data
+				android:name="settingsActivity"
+				android:value=".MainActivity" />
+		</service>
+
+		<activity
+			android:name="de.onyxbits.geobookmark.ProxyActivity"
+			android:exported="true"
+			android:label="@string/title_activity_proxy" >
+		</activity>
+		
 	</application>
 
 </manifest>

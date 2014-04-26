@@ -2,7 +2,11 @@ package de.onyxbits.geobookmark;
 
 import java.util.Date;
 
+
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -13,7 +17,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
 import android.text.format.DateFormat;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 
 public class BookmarkService extends Service implements LocationListener {
@@ -94,7 +100,15 @@ public class BookmarkService extends Service implements LocationListener {
 		else {
 			// This happens if GPS is unavailable and no app has requested a location
 			// since the last reboot.
-			Toast.makeText(this,R.string.no_fix,Toast.LENGTH_LONG).show();
+			NotificationCompat.Builder builder =
+	        new NotificationCompat.Builder(this)
+	        .setSmallIcon(R.drawable.ic_stat_error)
+	        .setContentTitle(getString(R.string.no_fix_title))
+	        .setAutoCancel(true)
+	        .setContentText(getString(R.string.no_fix_content));
+
+			NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+			nm.notify(0,builder.build());
 		}
 		feedback();
 		stopSelf();
