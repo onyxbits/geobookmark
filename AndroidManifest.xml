@@ -59,7 +59,7 @@
 		<activity
 			android:name="de.onyxbits.geobookmark.ProxyActivity"
 			android:exported="true"
-			android:label="@string/title_activity_proxy" >
+			android:label="@string/app_name" >
 		</activity>
 		
 	</application>
