@@ -6,7 +6,7 @@
 	<string name="getting_location">Getting Location</string>
 	<string name="bad_fix">Location may be unprecise</string>
 	<string name="no_fix_title">Could not determine location</string>
-	<string name="no_fix_content">Neither GPS nor a last known location was available.</string>
+	<string name="no_fix_content">Initialize the system with a \'maps\' app.</string>
 	<string name="dashclock_title">Geo Bookmark</string>
 	<string name="dashclock_description">Bookmarks your current time and location on the homescreen.</string>
 
